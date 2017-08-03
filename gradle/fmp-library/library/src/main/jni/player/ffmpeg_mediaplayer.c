@@ -895,7 +895,8 @@ int decode_thread(void *arg) {
     is->pFormatCtx->skip_initial_bytes = is->offset;
     //is->pFormatCtx->iformat = av_find_input_format("mp3");
   }
-
+ is->pFormatCtx->probesize = 32;
+ is->pFormatCtx->max_analyze_duration = 32;
   // will interrupt blocking functions if we quit!
   callback.callback = decode_interrupt_cb;
   callback.opaque = is;
